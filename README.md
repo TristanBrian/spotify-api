@@ -60,6 +60,68 @@ The application will be available at `http://localhost:3000` (or the port specif
 - `src/hooks/`: Custom React hooks.
 - `src/App.tsx`: Main application component.
 
+## Building for Production
+
+To build the project for production, run:
+
+```bash
+npm run build
+```
+
+This will create an optimized production build in the `dist` directory.
+
+To preview the production build locally, run:
+
+```bash
+npm run preview
+```
+
+This will serve the production build at `http://localhost:4173` by default.
+
+## Deployment
+
+The contents of the `dist` directory can be deployed to any static hosting service such as:
+
+- Vercel
+- Netlify
+- GitHub Pages
+- AWS S3 + CloudFront
+- Firebase Hosting
+
+### Deploying to Netlify
+
+To deploy this project to Netlify:
+
+1. Ensure you have a Netlify account and the Netlify CLI installed (`npm install -g netlify-cli`).
+
+2. In the project root, create a `netlify.toml` file with the following content:
+
+```toml
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+[dev]
+  command = "npm run dev"
+  port = 3000
+```
+
+3. Run the build command:
+
+```bash
+npm run build
+```
+
+4. Deploy to Netlify using the CLI:
+
+```bash
+netlify deploy --prod --dir=dist
+```
+
+5. Set your environment variables (`VITE_CLIENT_ID` and `VITE_CLIENT_SECRET`) in the Netlify dashboard under Site Settings > Build & Deploy > Environment.
+
+Ensure that your environment variables (`VITE_CLIENT_ID` and `VITE_CLIENT_SECRET`) are set appropriately in your hosting environment or build pipeline.
+
 ## License
 
 This project is open source and available under the MIT License.
