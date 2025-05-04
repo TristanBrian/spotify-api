@@ -33,13 +33,7 @@ export async function getAccessToken(): Promise<string> {
     return cachedToken;
   }
 
-  // Log clientID and clientSecret length for debugging (mask actual values)
-  console.log(`clientID length: ${clientID?.length}, clientSecret length: ${clientSecret?.length}`);
-
   const credentials = encodeBase64(`${clientID}:${clientSecret}`);
-
-  // Log the base64 encoded credentials for debugging
-  console.log(`Encoded credentials: ${credentials}`);
 
   const authParams = {
     method: "POST",
